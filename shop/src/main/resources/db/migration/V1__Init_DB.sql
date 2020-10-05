@@ -85,8 +85,6 @@ create table orders (
   created timestamp,
   status varchar(255),
   sum numeric(19, 2),
-  amount numeric(19, 2),
-  price numeric(19, 2),
   user_id int8,
   primary key (id)
 );
@@ -102,6 +100,8 @@ create table orders_details (
   id int8 not null,
   order_id int8 not null,
   product_id int8 not null,
+  amount numeric(19, 2),
+  price numeric(19, 2),
   primary key (id)
 );
 

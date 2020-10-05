@@ -25,17 +25,23 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQ_NAME)
     @SequenceGenerator(name = SEQ_NAME, sequenceName = SEQ_NAME, allocationSize = 1)
     private Long id;
+
     @CreationTimestamp
     private LocalDateTime created;
+
     @UpdateTimestamp
     private LocalDateTime changed;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
     private BigDecimal sum;
     private String address;
+
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderDetails> details;
+
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 }
